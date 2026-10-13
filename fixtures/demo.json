@@ -1,0 +1,48 @@
+{
+  "question": "不会写代码，怎样借助 AI 做出一个用于投实习的项目？",
+  "context": "软件工程本科生，擅长需求洞察和 AI 协作，希望做出可演示、能讲清楚的作品。这是固定演示，本次不进行联网检索。",
+  "preparation": {
+    "in_scope": true,
+    "scope_message": "目标是形成能演示并说明设计依据的实习作品；先对照流程验证和可定制应用两种优先级。",
+    "questions": [],
+    "assumptions": ["暂按愿意逐步理解运行与调试流程处理，尚未确认。"],
+    "understanding": {
+      "goal": "做出可演示、能说明需求与设计依据的实习作品。",
+      "decision": "先用平台验证任务流程，还是借助 AI 开发一个可定制的小应用？",
+      "constraints": ["目前不会独立编写代码。"],
+      "observations": ["已有借助 AI 完成任务的经验。"],
+      "preferences": ["重视需求洞察、AI 协作和可演示的成果。"],
+      "user_assumptions": ["一个可演示项目可能有助于投递实习，具体岗位是否认可尚未核实。"],
+      "ai_assumptions": ["暂定用户愿意逐步理解运行与调试流程；不能把这一点当成已确认偏好。"],
+      "consequential_unknowns": ["目标岗位更看重产品流程还是代码与调试能力？", "完成期限和可投入的学习时间是多少？"],
+      "perspectives": [
+        {"name":"优先验证流程是否解决问题","decision_question":"平台能否覆盖所需模型、工具与任务步骤？","why_it_matters":"若主要目标是验证需求，验收重点是输入到结果的完整流程。"},
+        {"name":"优先形成可定制、能讲解的应用","decision_question":"是否需要自行组织界面、接口与证据展示？","why_it_matters":"若定制能力是关键，验收还需包含接口行为和调试理解。"}
+      ],
+      "needs_confirmation": false
+    }
+  },
+  "sources": [
+    {"id":"demo-a","title":"阿里云百炼：工作流应用","url":"https://help.aliyun.com/zh/model-studio/workflow-application","text":"通过工作流组合使用大模型、API和函数计算等节点","retrieved_at":"2026-10-13 人工预置；本次未访问","published_at":null,"truncated":true,"reference_kind":"preset","research_question":"平台是否能连接模型、外部接口与任务步骤？","why_selected":"官方功能说明直接对应流程能否搭建，避免只凭工具宣传判断。"},
+    {"id":"demo-b","title":"FastAPI：官方介绍","url":"https://fastapi.tiangolo.com/","text":"FastAPI is a modern, fast (high-performance), web framework for building APIs with Python based on standard Python type hints.","retrieved_at":"2026-10-13 人工预置；本次未访问","published_at":null,"truncated":true,"reference_kind":"preset","research_question":"自建应用是否有可用的 Python 接口框架？","why_selected":"官方介绍说明接口开发能力，为可定制应用路线提供技术依据。"}
+  ],
+  "report": {
+    "summary":"两条路线的取舍取决于作品的验收重点。若先检验任务流程，且平台节点满足需求，可先用平台；若需要自定义交互与证据展示，并愿意承担调试学习，可由 AI 协助开发小应用。现有资料说明功能能力，尚不足以判断哪条路线更容易获得实习。",
+    "assumptions":["暂按愿意逐步理解运行与调试流程处理，尚未确认。"],
+    "facts":[
+      {"text":"百炼工作流支持组合模型、API 和函数计算节点。","decision_question":"平台能否覆盖任务流程？","relevance":"说明平台路线可以连接任务步骤；你可据此核对所需搜索工具与输出流程是否有对应节点。","limitation":"功能说明不能证明你的所有定制需求都能满足，也不能证明搭建耗时或岗位认可度。","citations":[{"source_id":"demo-a","quote":"通过工作流组合使用大模型、API和函数计算等节点"}]},
+      {"text":"FastAPI 是用于以 Python 构建 API 的框架。","decision_question":"自建应用如何提供可定制接口？","relevance":"为自行组织输入、任务执行与结果接口提供技术路线；是否适合你，还取决于调试学习投入。","limitation":"框架存在不等于不会代码的用户能独立交付，也没有证明 AI 生成代码可靠。","citations":[{"source_id":"demo-b","quote":"FastAPI is a modern, fast (high-performance), web framework for building APIs with Python based on standard Python type hints."}]}
+    ],
+    "options":[
+      {"name":"先用平台验证流程","why_it_matters":"优先回答真实用户能否借助流程完成任务。","conditions":["主要验收目标是流程可用，平台节点满足关键需求"],"benefits":["可利用已有节点组织一条完整任务路径"],"costs":["需要核对节点能力、调用限制及后续迁移方式"],"pivotal_uncertainty":"平台能否覆盖你最重要的一个真实任务？","claim_ids":[0]},
+      {"name":"由 AI 协助开发小应用","why_it_matters":"优先保留自定义界面、接口和证据呈现方式。","conditions":["需要自定义交互，愿意理解运行和调试"],"benefits":["可以围绕自身需求组织接口与页面"],"costs":["需要配置环境、排查问题并核对生成结果"],"pivotal_uncertainty":"学习投入能否满足完成期限及目标岗位要求？","claim_ids":[1]}
+    ],
+    "inferences":["仅凭现有两份官方能力说明，不能替你确定岗位价值或开发难度；优先级应由真实任务与招聘要求决定。"],
+    "recommendation_conditions":["若先验证用户需求，且平台覆盖关键步骤，先选平台路线。","若自定义交互不可替代，且有调试学习时间，选择小范围自建。"],
+    "reversal_conditions":["若招聘要求强调代码理解和调试能力，只有流程演示可能不足。","若完成期限很紧，且平台已有所需功能，应重新考虑先完成流程验证。"],
+    "unknowns":["尚未核对真实岗位要求、期限和平台功能覆盖情况。","尚无实测开发时长、结果质量或调用费用。"],
+    "next_step":"选一个真实调研任务，列出输入、工具、输出三个验收点，核对平台是否覆盖；覆盖则先搭流程，不覆盖且需定制则缩小自建范围。",
+    "continuations":["拿一份目标实习 JD 核对作品需要展示的能力。","用同一个任务对照两条路线的功能覆盖与限制。","选一条路线，仅试做最关键的一步并记录结果。"],
+    "incomplete":false,"reason":null
+  }
+}

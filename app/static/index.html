@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>观照 · 多视角调研</title><link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <aside class="rail">
+    <a class="brand" href="/" aria-label="观照首页"><span class="brand-mark" aria-hidden="true">◈</span><span>观照<small>多视角调研助手</small></span></a>
+    <button id="new-task" class="new-task">＋ 新建调研</button>
+    <div class="history-heading">调研记录 <span id="history-location">保存在本机</span></div>
+    <nav id="history" aria-label="最近调研"><p class="muted">还没有调研记录</p></nav>
+    <div class="rail-note"><span class="local-dot"></span><span id="workspace-kind">本机工作台</span><p>你的问题，你来判断。<br>让证据帮助你看清选择。</p></div>
+  </aside>
+  <main>
+    <header class="topbar"><span>调研工作台</span><button class="text-button" id="help-toggle">如何使用</button></header>
+    <section id="help" class="help-box" hidden>
+      <h2>先体验，再接入</h2>
+      <p id="help-intro">演示使用固定问题和预置官方资料，不调用模型或搜索服务。在线调研需要在项目的 <code>.env</code> 中配置百炼模型和 Tavily 搜索密钥，保存后重新启动应用。</p>
+      <p>调研运行时可以停止；关闭页面不会停止任务。刷新或从左侧记录中可以找回结果。引用可回看，不代表结论已获独立核实。</p>
+      <p id="config-detail"></p>
+    </section>
+    <div class="workspace">
+      <div class="primary">
+        <section class="intro" id="intro"><p class="intro-kicker">从一个具体问题开始</p><h1>把想法放到证据面前。</h1><p>先理清需求和预设，再查证会影响选择的不同场景。<br>把资料的出处、参考价值和限制放在一起，减少你反复搜索与筛选的工作。</p></section>
+        <section class="composer" id="composer">
+          <div class="mode-tabs" role="group" aria-label="运行模式"><button id="mode-online" aria-pressed="false">输入自己的问题 · 在线调研</button><button id="mode-demo" class="selected" aria-pressed="true">查看固定示例</button></div>
+          <div id="mode-note" class="mode-note">演示数据，未联网检索。以下为固定示例。</div>
+          <form id="research-form">
+            <label for="question">你想弄清楚什么？</label>
+            <textarea id="question" maxlength="2000" rows="3" required readonly></textarea>
+            <label for="context">目标、已有基础与限制 <span>选填</span></label>
+            <textarea id="context" maxlength="4000" rows="3" readonly></textarea>
+            <div class="composer-footer"><span id="run-hint">无需密钥，可以直接体验</span><button type="submit" class="primary-button" id="start">体验完整流程</button></div>
+          </form>
+        </section>
+        <div id="error" class="error" role="alert" hidden></div>
+        <section id="task-view" hidden>
+          <div class="task-title"><div><span id="task-mode" class="badge"></span><h1 id="task-question"></h1></div><button id="stop" class="secondary-button" hidden>停止调研</button></div>
+          <section class="progress-panel" aria-label="执行进度"><div class="panel-heading"><h2 id="state-label">正在准备</h2><span id="usage-summary"></span></div><ol id="events"></ol></section>
+          <section id="understanding" class="understanding" hidden aria-label="需求理解与调研方向"></section>
+          <section id="clarification" class="clarification" hidden><h2>还需要明确的条件</h2><p id="scope-message"></p><ul id="questions"></ul><label for="answers">补充你的情况</label><textarea id="answers" rows="3" maxlength="2000"></textarea><div class="actions"><button id="answer-start" class="primary-button">补充并开始</button><button id="assume-start" class="secondary-button">按假设继续</button><button id="rewrite" class="secondary-button" hidden>修改问题</button></div></section>
+          <article id="report" class="report" hidden><div class="report-toolbar"><h2>调研简报</h2><a id="download" class="text-button" href="#">下载报告</a></div><div id="report-body"></div></article>
+          <div id="result-next" class="result-next" hidden><p>结论是否贴合你的实际情况？可以调整条件，再研究一次。</p><button id="revise" class="secondary-button">调整条件</button></div>
+        </section>
+      </div>
+      <aside class="evidence-panel">
+        <div class="evidence-heading"><h2>证据笔记</h2><span id="source-count">0</span></div>
+        <div id="sources"><div class="evidence-empty"><span aria-hidden="true">▤</span><h3>从线索到依据</h3><p>读取到的资料会保存在这里。报告中的每条引用，都可以回来核查。</p></div></div>
+        <div class="boundary"><h3>一次小而完整的调研</h3><p>支持 AI 项目选题、软件方案与工具比较。</p><dl><div><dt>运行上限</dt><dd>5 分钟</dd></div><div><dt>搜索 / 正文读取</dt><dd id="tool-limits">2 / 3 次</dd></div><div><dt>证据不足时</dt><dd>保留未知项</dd></div></dl></div>
+      </aside>
+    </div>
+    <footer>观照 · 第一版 <span>模型输出需要你的判断</span></footer>
+  </main>
+</body>
+</html>

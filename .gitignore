@@ -1,0 +1,13 @@
+.venv/
+.env
+.env.cloud
+.env.cloud.*
+!.env.cloud.example
+data/
+__pycache__/
+.pytest_cache/
+*.pyc
+.superpowers/
+build/
+dist/
+*.egg-info/

@@ -1,0 +1,29 @@
+# Free hosting only. Keep paid research closed until a new explicit budget.
+services:
+  - type: web
+    name: guanzhao-research
+    runtime: python
+    plan: free
+    region: singapore
+    autoDeployTrigger: "off"
+    buildCommand: pip install .
+    startCommand: python -m app.cloud_main
+    healthCheckPath: /health
+    envVars:
+      - key: GUANZHAO_DEPLOYMENT
+        value: cloud-online
+      - key: GUANZHAO_TASK_LIMIT
+        value: "3"
+      - key: GUANZHAO_DATA_DIR
+        value: /tmp/guanzhao-online
+      # GUANZHAO_ONLINE_UNTIL is intentionally absent: paid research stays closed.
+      - key: GUANZHAO_SESSION_SECRET
+        generateValue: true
+      - key: LLM_BASE_URL
+        value: https://dashscope.aliyuncs.com/compatible-mode/v1
+      - key: LLM_MODEL
+        value: qwen-plus
+      - key: LLM_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false

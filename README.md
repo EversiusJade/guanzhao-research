@@ -61,4 +61,4 @@ TAVILY_API_KEY=
 
 ## 许可与反馈
 
-MIT..项目整体许可证待确定，附带 Skill 的许可信息保留在原文件中。使用问题和建议可以提交到 [Issues](https://github.com/EversiusJade/guanzhao-research/issues)，说明输入问题、预期结果和实际情况即可。
+MIT。
